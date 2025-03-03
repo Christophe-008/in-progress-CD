@@ -29,11 +29,11 @@ img {
 }
 
 @font-face {
-    font-family: Anurati;
-    src: url(../public/fonts/anurati_font/Anurati-Regular.otf);
+    font-family: "Anurati";
+    src: url("/fonts/anurati_font/Anurati-Regular.otf") format("opentype");
 }
 .fontAnuri {
-    font-family: Anurati;
+    font-family: "Anurati", sans-serif;
     text-transform: uppercase;
 }
 
