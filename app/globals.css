@@ -1,42 +1,62 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
+@import url("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.9.0/css/foundation.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    max-width: 100vw;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: black;
+    background: url(https://www.pixelstalk.net/wp-content/uploads/image10/A_white_and_black_car_drawing_with_smoke_in_the_style_cool_car_desktop_wallpaper_4K.jpg)
+        no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(70px);
+    min-height: 100vh;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@font-face {
+    font-family: Anurati;
+    src: url(../public/fonts/anurati_font/Anurati-Regular.otf);
+}
+.fontAnuri {
+    font-family: Anurati;
+    text-transform: uppercase;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+h2.title {
+    font-size: 2rem;
+    span {
+        display: block;
+        font-size: 1.5rem;
+    }
+    &:first-letter {
+        font-family: Anurati;
+        text-transform: uppercase;
+        font-size: 3rem;
+    }
+}
+.textWhite {
+    color: white;
+}
+.bgWhite {
+    background-color: white;
 }

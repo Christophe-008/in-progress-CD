@@ -1,0 +1,22 @@
+.hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0;
+    img.heroImage {
+        padding: 2rem;
+        z-index: -1;
+    }
+    .heroText {
+        color: white;
+        h2.heroTitle {
+            letter-spacing: 0.6rem;
+            margin: 0;
+            @media screen and (min-width: 768px) {
+                letter-spacing: 1rem;
+            }
+        }
+    }
+}
