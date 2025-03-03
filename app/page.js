@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <section>
+            <section className="skew">
                 <div className="grid-container">
                     <div className="grid-x grid-padding-x align-center">
                         <div className="cell small-10 medium-6">
@@ -47,6 +47,29 @@ export default function Home() {
                                     maintenant !
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="separatorSkewWhite"></div>
+            </section>
+            <section className="bgWhite">
+                <div className="grid-container">
+                    <div className="grid-x grid-padding-x align-center">
+                        <div className="cell small-10">
+                            <h2 className="title">
+                                curiosité technologique constante
+                            </h2>
+                            <p>
+                                Passionné par le web et ses technologies, je
+                                reste continuellement à l'affût des dernières
+                                nouveautés qui se font sur la toile.
+                            </p>
+                            <p>
+                                Je possède une très grande culture web qui me
+                                permet de vous orienter vers les{" "}
+                                <b>meilleures solutions</b> à mettre en place{" "}
+                                <b>pour votre projet</b>.
+                            </p>
                         </div>
                     </div>
                 </div>

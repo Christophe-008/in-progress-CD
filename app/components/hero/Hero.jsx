@@ -14,15 +14,19 @@ export default function Hero() {
                                 fill={true}
                                 className={styles.heroImage}
                                 style={{ objectFit: "contain" }}
-                                // priority={true}
+                                priority={true}
                                 // placeholder="blur"
                             />
                             <div className={styles.heroText}>
                                 <h2 className={`${styles.heroTitle} fontAnuri`}>
                                     createur design
                                 </h2>
-                                <p className="text-center">
-                                    par Christophe Delobel
+                                <p
+                                    className={`text-right ${styles.heroSubtitle}`}
+                                >
+                                    par <b className="fontAnuri">C</b>
+                                    hristophe <b className="fontAnuri">D</b>
+                                    elobel
                                 </p>
                             </div>
                         </div>
