@@ -1,20 +1,21 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.9.0/css/foundation.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+html {
+}
 body {
     font-family: "Work Sans", serif;
     font-optical-sizing: auto;
     font-style: normal;
-
-    max-width: 100vw;
-    /* font-family: Arial, Helvetica, sans-serif; */
+    /* max-width: 100vw; */
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: black;
     background: url(https://t3.ftcdn.net/jpg/07/50/60/26/360_F_750602683_6x2yXATTBPmtCApHPjj5NOMnbPrJoIAV.jpg)
         no-repeat center center fixed;
     background-size: cover;
+    will-change: auto;
     backdrop-filter: blur(70px);
-    min-height: 100lvh;
 }
 
 * {
@@ -35,6 +36,8 @@ img {
 .fontAnuri {
     font-family: "Anurati", sans-serif;
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -60,23 +63,36 @@ h2.title {
 .bgWhite {
     background-color: white;
 }
-section.skew {
+
+section.pb5rem {
+    padding-bottom: 5rem;
+}
+
+.skew {
     position: relative;
     overflow: hidden;
-    padding-bottom: 5rem;
-    @media screen and (min-width: 768px) {
-        padding-bottom: 10rem;
+    padding-top: 10rem;
+    z-index: 1;
+    .separatorSkewWhite {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-top-right-radius: 25px;
+        transform: skewY(-5deg);
+        transform-origin: top right;
+        z-index: -1;
     }
 }
-.separatorSkewWhite {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    transform-origin: top left;
-    transform: skewY(-5deg);
-    border-top-right-radius: 25px;
-    z-index: 1;
+
+.test {
+    ul {
+        list-style: none;
+        margin: 0;
+        border-radius: 25px;
+        li {
+            border-bottom: 1px solid grey;
+        }
+    }
 }

@@ -1,3 +1,7 @@
 export default function page() {
-    return <div>page</div>;
+    return (
+        <>
+            <h2 className="title">contact</h2>
+        </>
+    );
 }

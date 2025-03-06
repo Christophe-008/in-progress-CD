@@ -50,6 +50,8 @@ nav {
         stroke-linecap: round;
     }
     .active .line {
+        isolation: isolate;
+
         stroke: red;
     }
     .ham1 .top {

@@ -6,4 +6,5 @@ header {
     padding: 2rem 0;
     /* backdrop-filter: blur(10px); */
     z-index: 9;
+    mix-blend-mode: difference;
 }

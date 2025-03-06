@@ -22,15 +22,20 @@ export default function Nav() {
             </div>
             {/* Utilisation de la variable activeClass */}
             <ul className={`nav-links ${activeClass}`}>
-                {["home", "about", "services", "work", "contact"].map(
-                    (page) => (
-                        <li key={page} onClick={() => setNavActive(false)}>
-                            <Link href={`/${page === "home" ? "" : page}`}>
-                                {page}
-                            </Link>
-                        </li>
-                    )
-                )}
+                {[
+                    "home",
+                    "about",
+                    "services",
+                    "work",
+                    "contact",
+                    "exemple",
+                ].map((page) => (
+                    <li key={page} onClick={() => setNavActive(false)}>
+                        <Link href={`/${page === "home" ? "" : page}`}>
+                            {page}
+                        </Link>
+                    </li>
+                ))}
             </ul>
             <div className="containerBurger">
                 <svg

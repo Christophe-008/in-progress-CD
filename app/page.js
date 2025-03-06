@@ -1,11 +1,10 @@
 import Hero from "./components/hero/Hero";
 import styles from "./page.module.css";
-
 export default function Home() {
     return (
         <>
             <Hero />
-            <section className="skew">
+            <section className="pb5rem">
                 <div className="grid-container">
                     <div className="grid-x grid-padding-x align-center">
                         <div className="cell small-10 medium-6">
@@ -50,11 +49,28 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="separatorSkewWhite"></div>
             </section>
-            <section className="bgWhite">
+            <section className="skew">
+                <div className="separatorSkewWhite"></div>
                 <div className="grid-container">
                     <div className="grid-x grid-padding-x align-center">
+                        <div className="cell">
+                            <h2 className="title">
+                                <span>mon expertise au service</span>
+                                des Entrepreneurs, TPE, PME / PMI, Artisans
+                            </h2>
+                            <p>
+                                Je vous accompagne à élaborer votre stratégie de
+                                communication via internet.
+                            </p>
+                            <p>
+                                De l’audit stratégique au cahier des charges
+                                puis à la conception des livrables (site
+                                vitrine, site e-commerce, landing page,
+                                newsletters,...) en réalisant un suivi de projet
+                                avec une approche agile.
+                            </p>
+                        </div>
                         <div className="cell small-10">
                             <h2 className="title">
                                 curiosité technologique constante
@@ -70,6 +86,17 @@ export default function Home() {
                                 <b>meilleures solutions</b> à mettre en place{" "}
                                 <b>pour votre projet</b>.
                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="grid-container">
+                    <div className="grid-x grid-padding-x align-right">
+                        <div className="cell small-10 medium-6">
+                            <h2 className="title">
+                                <span>dynamique mobile</span>
+                                <b className="textBlue">80%</b> des Français
+                                utilisent internet via leur smartphone
+                            </h2>
                         </div>
                     </div>
                 </div>
