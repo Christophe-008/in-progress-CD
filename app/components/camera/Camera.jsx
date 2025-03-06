@@ -1,16 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function CameraCapture() {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const [photo, setPhoto] = useState(null);
-    const [facingMode, setFacingMode] = useState("user"); // 'user' = caméra avant, 'environment' = arrière
+    const [facingMode, setFacingMode] = useState("user"); // Caméra avant par défaut
     const [stream, setStream] = useState(null);
     const [videoSize, setVideoSize] = useState({ width: 0, height: 0 });
 
-    // Démarrer la caméra avec la meilleure résolution disponible
+    // Démarrer la caméra avec la meilleure résolution possible
     const startCamera = async () => {
         try {
             if (stream) {
@@ -20,7 +20,7 @@ export default function CameraCapture() {
             const newStream = await navigator.mediaDevices.getUserMedia({
                 video: {
                     facingMode: facingMode,
-                    width: { ideal: 9999 }, // Prend la résolution max possible
+                    width: { ideal: 9999 },
                     height: { ideal: 9999 },
                 },
             });
@@ -29,7 +29,7 @@ export default function CameraCapture() {
                 videoRef.current.srcObject = newStream;
                 setStream(newStream);
 
-                // Attendre le chargement de la vidéo pour obtenir sa vraie résolution
+                // Attendre le chargement pour récupérer la vraie résolution
                 videoRef.current.onloadedmetadata = () => {
                     setVideoSize({
                         width: videoRef.current.videoWidth,
@@ -38,7 +38,7 @@ export default function CameraCapture() {
                 };
             }
         } catch (error) {
-            console.error("Erreur lors de l'accès à la caméra:", error);
+            console.error("Erreur caméra :", error);
         }
     };
 
@@ -50,23 +50,25 @@ export default function CameraCapture() {
         }
     };
 
-    // Capturer une photo en utilisant la résolution native
+    // 📌 🔄 Relancer la caméra quand `facingMode` change
+    useEffect(() => {
+        startCamera();
+    }, [facingMode]); // Dès que `facingMode` change, la caméra redémarre
+
+    // Capturer une photo en haute résolution
     const takePhoto = () => {
         if (videoRef.current && canvasRef.current) {
             const video = videoRef.current;
             const canvas = canvasRef.current;
             const context = canvas.getContext("2d");
 
-            // Utiliser la vraie résolution de la caméra
             canvas.width = videoSize.width;
             canvas.height = videoSize.height;
             context.drawImage(video, 0, 0, videoSize.width, videoSize.height);
 
-            // Convertir en image haute qualité
             const imageData = canvas.toDataURL("image/jpeg", 1.0);
             setPhoto(imageData);
 
-            // Téléchargement automatique
             const link = document.createElement("a");
             link.href = imageData;
             link.download = "photo_capture.jpg";
@@ -74,10 +76,11 @@ export default function CameraCapture() {
         }
     };
 
-    // Basculer entre la caméra avant et arrière
+    // 📌 ✅ ✅ Changer la caméra proprement sans clignotement
     const toggleCamera = () => {
-        setFacingMode(facingMode === "user" ? "environment" : "user");
-        startCamera();
+        setFacingMode((prevMode) =>
+            prevMode === "user" ? "environment" : "user"
+        );
     };
 
     return (
@@ -86,7 +89,6 @@ export default function CameraCapture() {
                 <div className="cell small-12 medium-8 large-6">
                     <h2 className="text-center">📸 Capture de photo</h2>
 
-                    {/* Résolution affichée */}
                     {videoSize.width > 0 && (
                         <p className="text-center">
                             📏 Résolution: {videoSize.width} x{" "}
@@ -94,7 +96,6 @@ export default function CameraCapture() {
                         </p>
                     )}
 
-                    {/* Conteneur vidéo stylisé */}
                     <div
                         className="callout primary text-center"
                         style={{ overflow: "hidden" }}
